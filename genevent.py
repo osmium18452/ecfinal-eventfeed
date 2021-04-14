@@ -197,7 +197,7 @@ def gen_team(affiliations):
     for i in teams:
         affil = None if not teams[i]["affilid"] else affiliations[teams[i]["affilid"]]
         item = {
-            "externalid": teams[i]["externalid"],
+            "externalid": teams[i]["icpcid"],
             "group_ids": [ teams[i]["categoryid"] ],
             "affiliation": None if not affil else affil["formal_name"],
             "id": i,
