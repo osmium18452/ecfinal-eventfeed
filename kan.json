@@ -1,0 +1,42 @@
+[
+  {
+    "id": 6826,
+    "type": "judgements",
+    "op": "create",
+    "data": {
+      "max_run_time": 0.0,
+      "start_time": "2019-12-15T11:01:25+08:00",
+      "start_contest_time": "02:01:25",
+      "end_time": "2019-12-15T11:01:36+08:00",
+      "end_contest_time": "02:01:36",
+      "id": 6383,
+      "submission_id": 6279,
+      "valid": true,
+      "judgehost": "Judge14",
+      "judgement_type_id": "WA"
+    },
+    "time": "2019-12-19T18:40:14.444411+08:00"
+  },
+  {
+    "id": 3468,
+    "type": "submissions",
+    "op": "create",
+    "data": {
+      "language_id": "cpp",
+      "time": "2019-12-15T11:03:50+08:00",
+      "contest_time": "02:03:50",
+      "id": 6310,
+      "externalid": null,
+      "team_id": 225,
+      "problem_id": 58,
+      "entry_point": null,
+      "files": [
+        {
+          "href": "contests/16/submissions/6310/files",
+          "mime": "application/zip"
+        }
+      ]
+    },
+    "time": "2019-12-19T18:40:14.398701+08:00"
+  }
+]

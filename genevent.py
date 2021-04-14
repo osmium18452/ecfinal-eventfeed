@@ -271,6 +271,17 @@ def genEvent(typ, data, id=0, op="create", time=None):
     static_event_id += 1
     return json.dumps(e) + "\n"
 
+def trim_submissions(submissions,judgements):
+    judged_submission={}
+    judged=[]
+    for i in judgements:
+        judged.append(i['submission_id'])
+    judged.sort()
+    for i in submissions:
+        if judged.count(submissions[i]['id']>0):
+            judged_submission[i]=submissions[i]['id']
+    return judged_submission
+
 def main():
     global db
     db = dbConn(db_user="root")
@@ -286,6 +297,7 @@ def main():
     judgement = {}
     for i in judgement_types: judgement[judgement_types[i]["name"].replace(' ', '-')] = i
     judgements = gen_judging(judgement)
+    judged_submission=trim_submissions(submissions,judgement)
     db.close()
 
     with open("event-feed.json", 'w') as f:
@@ -296,7 +308,7 @@ def main():
         for i in organizations:     f.write(genEvent("organizations",  organizations[i]))
         for i in teams:             f.write(genEvent("teams",          teams[i]))
         # f.writelines(genEvent("state", info["state"], op="create"))
-        for i in submissions:       f.write(genEvent("submissions",    submissions[i]))
+        for i in judged_submission:       f.write(genEvent("submissions",    submissions[i]))
         for i in judgements:        f.write(genEvent("judgements",     judgements[i], op="create"))
         # for i in judgements:        f.write(genEvent("judgements",     judgements[i], op="update"))
         f.writelines(genEvent("state", info["state"], op="update"))
